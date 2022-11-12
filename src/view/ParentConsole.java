@@ -320,11 +320,8 @@ import java.io.Serializable;
    * This is the function that is called whenever the program exits, for e.g. when the user chooses to quit the program
    */
   protected void exitProgram() {
-    // TODO: save all state into storage
+    ParentConsole.scannerObj.close();
     return;
-
-    // ParentConsole.scannerObj.close();
-    // System.exit(0);
   }
 
   protected BookingManager getBookingManager() {

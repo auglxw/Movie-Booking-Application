@@ -191,6 +191,7 @@ public class MovieGoerConsole extends ParentConsole {
     if (!(account instanceof MovieGoerAccount)) {
       System.out.println("Something went wrong in the login process");
       this.exitProgram();
+      return true;
     }
     
     Integer userSelection = super.getSelectInput(Utils.asArrayList("to submit review", 
