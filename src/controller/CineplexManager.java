@@ -20,12 +20,24 @@ public class CineplexManager {
    * Collection of all cineplexes the company owns
    */
   private ArrayList<Cineplex> cineplexesArr = new ArrayList<Cineplex>();
-  
+
   /**
    * Collection of all cinema halls the company owns
    */
   private ArrayList<Cinema> cinemasArr = new ArrayList<Cinema>();
 
+  public void hydrateCineplexManager(ArrayList<Cineplex> cineplexArr, ArrayList<Cinema> cinemasArr) {
+    if (cineplexArr != null) {
+      for (Cineplex cineplex : cineplexArr) {
+        this.cineplexesArr.add(cineplex);
+      }
+    }
+    if (cinemasArr != null) {
+      for (Cinema cinema : cinemasArr) {
+        this.cinemasArr.add(cinema);
+      }
+    }
+  }
   /**
    * Add new cineplex
    * @param location

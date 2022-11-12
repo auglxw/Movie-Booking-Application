@@ -19,6 +19,13 @@ import model.DateTime;
 public class ScreeningManager {
   private ArrayList<Screening> screeningsArr = new ArrayList<Screening>();
 
+  public void hydrateScreeningManager(ArrayList<Screening> screeningsArr) {
+    if (screeningsArr != null) {
+      for (Screening screening : screeningsArr) {
+        this.screeningsArr.add(screening);
+      }
+    }
+  }
   public Screening addScreening(Movie movie, Cinema cinema, int year, int month, int day, int hour, int minute) throws Exception {
     DateTime date = new DateTime(year, month, day, hour, minute);
     Screening screening = new Screening(movie, cinema, date);

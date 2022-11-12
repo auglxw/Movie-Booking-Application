@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
 import enums.SeatType;
 
@@ -12,7 +13,7 @@ import enums.SeatType;
  @version 1.0
  @since 2022-10-30
 */
-public class Screening {
+public class Screening implements Serializable {
   private Movie movie;
   private Cinema cinema;
   private DateTime showTime;

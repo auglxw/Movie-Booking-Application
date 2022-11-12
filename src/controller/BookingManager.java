@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import enums.TicketType;
 
@@ -20,7 +21,15 @@ import utils.DateTimeUtils;
 */
 public class BookingManager {
   private ArrayList<Booking> bookingsArr = new ArrayList<Booking>();
-  
+
+  public void hydrateBookings(ArrayList<Booking> bookingsArr) {
+    if (bookingsArr == null) {
+      return;
+    }
+    for (Booking booking : bookingsArr) {
+      this.bookingsArr.add(new Booking(booking.getId(), booking.getMovieGoer(), booking.getAmountPaid(), booking.getTickets()));
+    }
+  }
   /**
    * Creates a booking from the user's choice of screening and seats.
    * Multiple tickets of the same type and screening can be created in a single booking.
@@ -127,11 +136,11 @@ public class BookingManager {
    * @param movieGoer
    * @return
    */
-  public ArrayList<Booking> getBookingsByUser(MovieGoerAccount movieGoer){
+  public ArrayList<Booking> getBookingsByUser(MovieGoerAccount movieGoer) {
     ArrayList<Booking> checkArr = new ArrayList<Booking>();
 	
     for(Booking findBooking: bookingsArr){
-      if(findBooking.getMovieGoer().equals(movieGoer))
+      if(findBooking.getMovieGoer().getUsername().equals(movieGoer.getUsername()))
         checkArr.add(findBooking);
     }
     return checkArr;

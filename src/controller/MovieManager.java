@@ -24,6 +24,14 @@ public class MovieManager {
     System.out.println("Movie manager created");
   }
 
+  public void hydrateMovieManager(ArrayList<Movie> moviesArr) {
+    if (moviesArr != null) {
+      for (Movie m : moviesArr) {
+        this.moviesArr.add(m);
+      }
+    }
+  }
+
   public void addMovie(Movie movie) throws Exception {
     for (Movie cur: this.moviesArr) {
       if (cur.getTitle().equals(movie.getTitle())) {

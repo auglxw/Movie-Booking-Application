@@ -38,7 +38,7 @@ public class SystemManager {
    * Hashmap that maps each seat type to a price multiplier
    */
   private HashMap<SeatType, Float> seatMultMap = Constants.DEFAULT_SEAT_PRICE_MAP;
-  
+
   /**
    * Sorting criteria set for sorting top movies
    */
@@ -53,6 +53,30 @@ public class SystemManager {
     return holidaysArr;
   }
 
+  public HashMap<CinemaType, Float> getCinemaMultMap() {
+    return this.cinemaMultMap;
+  }
+
+  public HashMap<SeatType, Float> getSeatMultMap() {
+    return this.seatMultMap;
+  }
+
+  public void hydrateSystemManager(ArrayList<DateTime> holidaysArr, HashMap<CinemaType, Float> cinemaMultMap, HashMap<SeatType, Float> seatMultMap, SortCriteria movieSortingCriteria) {
+    if (holidaysArr != null) {
+      for (DateTime holiday : holidaysArr) {
+        this.holidaysArr.add(holiday);
+      }
+    }
+    if (cinemaMultMap != null) {
+      this.cinemaMultMap = cinemaMultMap;
+    }
+    if (seatMultMap != null) {
+      this.seatMultMap = seatMultMap;
+    }
+    if (movieSortingCriteria != null) {
+      this.movieSortingCriteria = movieSortingCriteria;
+    }
+  }
    /**
     * Get the price multiplier for a particular cinema type
     *

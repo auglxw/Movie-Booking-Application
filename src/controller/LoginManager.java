@@ -29,6 +29,27 @@ public class LoginManager {
   private ArrayList<Account> usersArr = new ArrayList<Account>();
   private ArrayList<String> usedStaffIds = new ArrayList<String>();
 
+  public ArrayList<Account> getAccounts() {
+    return this.usersArr;
+  }
+
+  public ArrayList<String> getUsedStaffIds() {
+    return this.usedStaffIds;
+  }
+
+  public void hydrateLoginManager(ArrayList<Account> accountsArr, ArrayList<String> usedStaffIds) {
+    if (accountsArr != null) {
+      for (Account acc : accountsArr) {
+        this.usersArr.add(acc);
+      }
+    }
+    if (usedStaffIds != null) {
+      for (String staffId : usedStaffIds) {
+        this.usedStaffIds.add(staffId);
+      }
+    }
+  }
+
   /**
    * Registers new staff/admin account, logged in after registering.
    * @param username This new account's username.
